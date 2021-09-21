@@ -1,0 +1,7 @@
+export const LogIn = "LogIn";
+export const GET_QUESTIONS = "GET_QUESTIONS";
+export const SAVE_QUESTION = "SAVE_QUESTION";
+export const GET_USERS = "GET_USERS";
+export const ADD_QUESTION_ANSWER = "ADD_QUESTION_ANSWER";
+export const QUESTION_ADDITION_TO_USER = "QUESTION_ADDITION_TO_USER";
+export const ADD_USER_ANSWER = "ADD_USER_ANSWER";
