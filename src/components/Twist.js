@@ -1,11 +1,14 @@
 import React from "react";
 import { connect } from "react-redux";
+import Error404 from "./Error404";
 import Question from "./Question";
 import Result from "./Result";
 
 export class Twist extends React.Component {
   render() {
-    return (
+    return this.props.NotFound ? (
+      <Error404 />
+    ) : (
       <div className="card center">
         <h5>
           <br />
@@ -30,15 +33,23 @@ export class Twist extends React.Component {
 }
 
 function mapStateToProps(state, { question_id, match }) {
-  let Qid;
+  let Qid,
+    author,
+    NotFound = false;
   question_id !== undefined
     ? (Qid = question_id)
     : (Qid = match.params.question_id);
+
   const Que = state.questions[Qid];
-  const author = state.users[Que.author];
+  if (Que === undefined) NotFound = true;
+  else {
+    author = state.users[Que.author];
+  }
+
   return {
     Que,
     author,
+    NotFound,
   };
 }
 
